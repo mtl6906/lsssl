@@ -29,7 +29,10 @@ namespace ls
  
 		Connection* Client::getConnection(int fd)
 		{
-			return new Connection(SSL_new(ctx), fd);
+			auto ssl = SSL_new(ctx);
+			if(ssl == nullptr)
+				throw Exception(Exception::LS_EALLOCATE);
+			return new Connection(ssl, fd);
 		}
 	}
 }

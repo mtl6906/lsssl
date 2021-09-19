@@ -16,7 +16,7 @@ add_library(lsssl SHARED ${SRC})
 
 add_executable(testcase ${SRC} ${SRC_SAMPLE})
 
-target_link_libraries(testcase lsexception lsio lsnet ssl crypto lsbuffer lshttp lstime lslogger lsitem lscopyableitem lscstring)
+target_link_libraries(testcase lsexception lsio lsnet ssl crypto lsbuffer lshttp lstime lslogger lsitem lscopyableitem lscstring lsjson)
 
 install(TARGETS lsssl DESTINATION lib)
 install(DIRECTORY include/ls/ssl DESTINATION include/ls)
