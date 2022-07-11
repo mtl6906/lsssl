@@ -78,7 +78,7 @@ string getinfo(const string &url, const string &host, const string &ip, int port
 	auto rtext = in -> split("\r\n\r\n", true);
 	http::Response response;
 	response.parseFrom(rtext);
-	response.getBody() = in -> split();
+	response.setBody(new StringBody(in -> split, "text/plain"));
 	cout << response.getBody() << endl;
 	return response.getBody();
 }
